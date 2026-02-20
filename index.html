@@ -2,142 +2,371 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>B.Pharm CA Practical - Personal Info</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Important for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>Utkarsh Yadav · complete biodata</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #eef2f3;
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .container {
-            background-color: #fff;
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        body {
+            background: #f0f5fa;
+            font-family: 'Calibri', 'Arial', 'Helvetica', 'Segoe UI', sans-serif;
+            line-height: 1.5;
+            color: #17252e;
+            padding: 1rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        h1, h2 {
+        /* main card – responsive */
+        .card {
+            max-width: 1000px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -10px rgba(0, 30, 50, 0.15),
+                        0 5px 12px rgba(0,0,0,0.05);
+            padding: 2rem 2.2rem;
+            transition: all 0.2s;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .main-heading {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
             text-align: center;
-            color: #007BFF;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 5px solid #1a4b70;
+            color: #0b2a41;
+            text-transform: uppercase;
+            word-break: break-word;
+            font-family: 'Arial Black', 'Arial', 'Calibri', sans-serif;
         }
 
-        .info {
-            margin: 15px 0;
-            font-size: 16px;
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin: 2rem 0 1.2rem 0;
+            padding: 0.6rem 1rem;
+            border-left: 10px solid #1a4b70;
+            background: linear-gradient(to right, #f0f7fd, #ffffff);
+            border-radius: 0 30px 30px 0;
+            color: #0f3c5c;
+            word-break: break-word;
         }
 
-        .info label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #333;
+        .section-title:first-of-type {
+            margin-top: 0.2rem;
         }
 
-        .info span {
-            display: block;
-            color: #555;
+        /* ---------- PERSONAL INFO grid (fully responsive) ---------- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem 1.8rem;
+            background: #f9fcff;
+            padding: 1.8rem 2rem;
+            border-radius: 32px;
+            border: 1px solid #dde7f0;
+            margin: 0.5rem 0 0.2rem 0;
         }
 
-        .footer {
-            margin-top: 30px;
+        .info-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.4rem;
+        }
+
+        .info-label {
+            font-weight: 700;
+            color: #0b3b5c;
+            min-width: 100px;
+            font-size: 1.05rem;
+        }
+
+        .info-value {
+            color: #1f2f3c;
+            font-weight: 500;
+            word-break: break-word;
+            flex: 1;
+        }
+
+        @media (max-width: 650px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+                padding: 1.5rem;
+            }
+            .info-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.2rem;
+                border-bottom: 1px dashed #c0d3e3;
+                padding-bottom: 0.7rem;
+            }
+            .info-item:last-child {
+                border-bottom: none;
+            }
+            .info-label {
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card { padding: 1.3rem 1.2rem; }
+            .section-title { font-size: 1.5rem; }
+            .main-heading { font-size: 2.2rem; }
+        }
+
+        /* ---------- EDUCATION (with school name prominently added) ---------- */
+        .edu-container {
+            background: #f9fcff;
+            border-radius: 32px;
+            border: 1px solid #dde7f0;
+            padding: 0.4rem 0;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .edu-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid #e2ecf5;
+        }
+
+        .edu-row:last-child {
+            border-bottom: none;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            color: #12496e;
+            width: 140px;
+            font-size: 1.1rem;
+            padding-right: 0.5rem;
+        }
+
+        .edu-desc {
+            flex: 1;
+            color: #1d3343;
+            word-break: break-word;
+        }
+
+        .school-highlight {
+            font-weight: 600;
+            color: #0b4b6b;
+            background: #e9f2fa;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-right: 0.5rem;
+            border: 1px solid #bcd3e9;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .current-sem-badge {
+            background: #d9ecfe;
+            padding: 0.35rem 1.4rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            border: 1px solid #9ec3e6;
+            color: #0a3b60;
+            margin: 0.25rem 0;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 600px) {
+            .edu-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.4rem;
+                padding: 1.2rem 1.5rem;
+            }
+            .edu-degree {
+                width: auto;
+            }
+            .school-highlight {
+                white-space: normal;
+                margin-bottom: 0.25rem;
+            }
+        }
+
+        /* ---------- text blocks (objective / skills / languages) ---------- */
+        .text-block {
+            background: #f9fcff;
+            border-radius: 30px;
+            padding: 1.6rem 2.2rem;
+            border: 1px solid #dde7f0;
+            margin: 0.8rem 0 0.8rem 0;
+            font-size: 1.1rem;
+            color: #1c3445;
+        }
+
+        .skill-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem 1rem;
+            margin: 0.5rem 0 0.2rem 0;
+        }
+
+        .skill-list li {
+            background: white;
+            padding: 0.6rem 1.4rem;
+            border-radius: 60px;
+            border: 1px solid #b9d2e9;
+            font-weight: 500;
+            color: #15455e;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            font-size: 1rem;
+        }
+
+        .lang-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            margin-top: 0.25rem;
+        }
+
+        .lang-chip {
+            background: white;
+            padding: 0.6rem 2rem;
+            border-radius: 60px;
+            border: 1px solid #b9d2e9;
+            font-weight: 600;
+            color: #103d59;
+            font-size: 1.2rem;
+        }
+
+        .lang-chip:first-child {
+            background: #ecf5fc;
+        }
+
+        .objective-text {
+            font-size: 1.12rem;
+            line-height: 1.7;
+        }
+
+        /* optional additional section (awaiting more info) */
+        .optional-placeholder {
+            margin-top: 1.8rem;
+            padding: 1rem 1.8rem;
+            background: #f3f9ff;
+            border-radius: 40px;
+            border: 2px dashed #aac6e1;
             text-align: center;
-            font-size: 14px;
-            color: #888;
+            color: #1f5170;
+            font-weight: 500;
+            font-size: 1.1rem;
         }
 
-        @media screen and (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                padding: 15px;
-            }
-
-            .info label {
-                font-size: 15px;
-            }
+        @media print {
+            body { background: white; padding: 0.2in; }
+            .card { box-shadow: none; border: 1px solid #aaa; }
         }
     </style>
 </head>
 <body>
+    <div class="card">
+        <div class="main-heading">JOB BIO-DATA</div>
 
-<div class="container">
-    <h1>B.Pharm 2nd Semester</h1>
-    <h2>Computer Applications Practical</h2>
+        <!-- █ PERSONAL DETAILS (unchanged, but complete) █ -->
+        <div class="section-title">📌 Personal details</div>
+        <div class="info-grid">
+            <div class="info-item"><span class="info-label">Full Name</span><span class="info-value">Utkarsh Yadav</span></div>
+            <div class="info-item"><span class="info-label">Date of Birth</span><span class="info-value">06/01/2007</span></div>
+            <div class="info-item"><span class="info-label">Gender</span><span class="info-value">Male</span></div>
+            <div class="info-item"><span class="info-label">Nationality</span><span class="info-value">Indian</span></div>
+            <div class="info-item"><span class="info-label">Marital Status</span><span class="info-value">Unmarried</span></div>
+            <div class="info-item"><span class="info-label">Mobile Number</span><span class="info-value">9428525378</span></div>
+            <div class="info-item"><span class="info-label">Email</span><span class="info-value">utkarshyadav426@gmail.com</span></div>
+            <div class="info-item"><span class="info-label">Address</span><span class="info-value">Jaunpur, Uttar Pradesh</span></div>
+        </div>
 
-    <div class="info">
-        <label>Student Name:</label>
-        <span>Utkarsh Yadav</span>
+        <!-- █ EDUCATIONAL QUALIFICATIONS (with school name added exactly as requested) █ -->
+        <div class="section-title">🎓 Educational qualifications</div>
+        <div class="edu-container">
+            <!-- 10th with Kendriya Vidyalaya Dahod -->
+            <div class="edu-row">
+                <span class="edu-degree">10th</span>
+                <span class="edu-desc">
+                    <span class="school-highlight">Kendriya Vidyalaya Dahod</span>
+                    CBSE Board, 2022 – 64%
+                </span>
+            </div>
+            <!-- 12th same school name -->
+            <div class="edu-row">
+                <span class="edu-degree">12th</span>
+                <span class="edu-desc">
+                    <span class="school-highlight">Kendriya Vidyalaya Dahod</span>
+                    CBSE Board, 2024 – 60%
+                </span>
+            </div>
+            <!-- Graduation (unchanged) -->
+            <div class="edu-row">
+                <span class="edu-degree">Graduation</span>
+                <span class="edu-desc">Bachelor of Pharmacy (B.Pharm), Dr. APJ Abdul Kalam Technical University, 2024–2028</span>
+            </div>
+            <!-- Current semester -->
+            <div class="edu-row">
+                <span class="edu-degree">Current Semester</span>
+                <span class="edu-desc"><span class="current-sem-badge">🔹 B.Pharm 4th Semester</span></span>
+            </div>
+        </div>
+
+        <!-- █ CAREER OBJECTIVE (professional, pharmacy focused) █ -->
+        <div class="section-title">🎯 Career objective</div>
+        <div class="text-block objective-text">
+            ⚕️ Enthusiastic and dedicated B.Pharm student (4th semester) with strong foundation in pharmaceutical sciences, pharmacology, and patient counselling. Seeking a challenging entry‑level role in a reputed pharmaceutical company or hospital to apply academic knowledge, develop practical skills, and contribute to healthcare excellence. Committed to ethical practice, continuous learning, and teamwork.
+        </div>
+
+        <!-- █ SKILLS (with basic computer, communication, teamwork) █ -->
+        <div class="section-title">⚙️ Skills</div>
+        <div class="text-block">
+            <ul class="skill-list">
+                <li>MS Word</li>
+                <li>MS PowerPoint</li>
+                <li>MS Excel</li>
+                <li>Communication</li>
+                <li>Teamwork</li>
+                <li>Basic computer</li>
+                <li>Drug knowledge</li>
+                <li>Patient counselling</li>
+            </ul>
+            <p style="margin-top: 1.2rem; color: #1e4b6e; font-size: 1rem; border-top: 1px dashed #bfd9f0; padding-top: 1rem;">
+                <strong>▶</strong> Basic computer proficiency (MS Word, PowerPoint, Excel) · strong communication · collaborative teamwork · eager to learn.
+            </p>
+        </div>
+
+        <!-- █ LANGUAGES KNOWN █ -->
+        <div class="section-title">🗣️ Languages known</div>
+        <div class="text-block" style="padding: 1.2rem 2rem;">
+            <div class="lang-wrapper">
+                <span class="lang-chip">Hindi</span>
+                <span class="lang-chip">English</span>
+            </div>
+        </div>
+
+        <!-- ========== ADDITIONAL INFO (ready for your extra details) ========== -->
+        <div class="section-title">📎 Additional information</div>
+        <div class="optional-placeholder">
+            <span>➕</span> You can add extra details here – certifications, internships, hobbies, or any other relevant information. <br><small style="opacity:0.7;">(this section is ready for your input)</small>
+        </div>
+
+        <div style="height: 0.75rem;"></div>
     </div>
-
-    <div class="info">
-        <label>Roll Number:</label>
-        <span>123456</span>
-    </div>
-
-    <div class="info">
-        <label>Enrollment Number:</label>
-        <span>BPH2025/001</span>
-    </div>
-
-    <div class="info">
-        <label>Course:</label>
-        <span>Bachelor of Pharmacy (B.Pharm)</span>
-    </div>
-
-    <div class="info">
-        <label>Semester:</label>
-        <span>2nd</span>
-    </div>
-
-    <div class="info">
-        <label>Subject:</label>
-        <span>Computer Applications</span>
-    </div>
-
-    <div class="info">
-        <label>Practical Title:</label>
-        <span>Create a Web Page to Show Personal Information</span>
-    </div>
-
-    <div class="info">
-        <label>Age:</label>
-        <span>18</span>
-    </div>
-
-    <div class="info">
-        <label>Gender:</label>
-        <span>Male</span>
-    </div>
-
-    <div class="info">
-        <label>Height:</label>
-        <span>169 cm</span>
-    </div>
-
-    <div class="info">
-        <label>Weight:</label>
-        <span>46 kg</span>
-    </div>
-
-    <div class="footer">
-        <p>Submitted to: [Teacher's Name]</p>
-        <p>Submission Date: 01/07/2025</p>
-    </div>
-</div>
-<div style="text-align: center; margin-top: 30px;">
-    <a href="personal-info.pdf" download>
-        <button style="padding: 10px 20px; font-size: 16px; background-color: #007BFF; color: white; border: none; border-radius: 6px; cursor: pointer;">
-            Download as PDF
-        </button>
-    </a>
-</div>
 </body>
 </html>
-
